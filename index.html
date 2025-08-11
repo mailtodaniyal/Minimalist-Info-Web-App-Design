@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIET Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-bolt"></i>
+            <span>PIET</span>
+        </div>
+        <nav class="nav flex-column mt-3">
+            <a href="#" class="nav-link active">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-truck"></i>
+                <span>Liefersstellenübersicht</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Beschaffung</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>Rechnungsprüfung</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-chart-line"></i>
+                <span>Monitor</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-check-circle"></i>
+                <span>Reinungsprüfung</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-users"></i>
+                <span>Nutzerverwaltung</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-question-circle"></i>
+                <span>Hilfe</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="d-flex align-items-center">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="rounded-circle me-2" width="40">
+                <div>
+                    <div class="fw-bold">Andreas Peters</div>
+                    <small class="text-muted">Administrator</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-link me-3 d-lg-none" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="form-control ps-4" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="me-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                            <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
+                        </div>
+                    </div>
+                    <div class="dropdown me-3">
+                        <a href="#" class="btn btn-light position-relative" id="notificationDropdown" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="notificationDropdown" style="width: 300px;">
+                            <div class="p-3 border-bottom">
+                                <h6 class="mb-0">Notifications (3)</h6>
+                            </div>
+                            <div class="list-group list-group-flush" style="max-height: 300px; overflow-y: auto;">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-3">
+                                            <div class="bg-primary bg-opacity-10 p-2 rounded">
+                                                <i class="fas fa-file-invoice text-primary"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">New invoice received</div>
+                                            <small class="text-muted">2 minutes ago</small>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-3">
+                                            <div class="bg-success bg-opacity-10 p-2 rounded">
+                                                <i class="fas fa-check-circle text-success"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">Order completed</div>
+                                            <small class="text-muted">1 hour ago</small>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-3">
+                                            <div class="bg-warning bg-opacity-10 p-2 rounded">
+                                                <i class="fas fa-exclamation-triangle text-warning"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">Server maintenance</div>
+                                            <small class="text-muted">3 hours ago</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="p-3 border-top text-center">
+                                <a href="#" class="text-primary">View all notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="user-profile" id="profileDropdown" data-bs-toggle="dropdown">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                            <div class="user-info d-none d-md-block">
+                                <div class="user-name">Andreas Peters</div>
+                                <div class="user-role">Administrator</div>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Settings</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-envelope me-2"></i> Messages</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <div class="page-header mb-4">
+                <h1 class="page-title">Dashboard</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="row mb-4">
+                <div class="col-md-6 col-lg-3 fade-in delay-1">
+                    <div class="stat-card">
+                        <div class="stat-icon primary">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="stat-value">4,271.08</h3>
+                        <p class="stat-label">kWh Verbrauch</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 fade-in delay-2">
+                    <div class="stat-card">
+                        <div class="stat-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="stat-value">63.65%</h3>
+                        <p class="stat-label">Abdeckung</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 fade-in delay-3">
+                    <div class="stat-card">
+                        <div class="stat-icon warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="stat-value">2</h3>
+                        <p class="stat-label">Offene Prüfungen</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 fade-in delay-4">
+                    <div class="stat-card">
+                        <div class="stat-icon danger">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3 class="stat-value">4,795.42</h3>
+                        <p class="stat-label">Rechnungssumme</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Row -->
+            <div class="row">
+                <!-- Left Column -->
+                <div class="col-lg-8">
+                    <!-- Market Overview Widget -->
+                    <div class="widget fade-in delay-1 mb-4">
+                        <div class="widget-header">
+                            <h5 class="widget-title">Marktübersicht</h5>
+                            <div class="widget-actions">
+                                <button class="btn btn-sm"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                        </div>
+                        <div class="widget-body">
+                            <div class="chart-container">
+                                <canvas id="marketChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terminmarkt Widget -->
+                    <div class="widget fade-in delay-2 mb-4">
+                        <div class="widget-header">
+                            <h5 class="widget-title">Terminmarkt (Strom Base vs. Peek)</h5>
+                            <div class="widget-actions">
+                                <button class="btn btn-sm"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                        </div>
+                        <div class="widget-body">
+                            <div class="chart-container">
+                                <canvas id="terminmarktChart"></canvas>
+                            </div>
+                            <div class="mt-3">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="bg-primary me-2" style="width: 12px; height: 12px; border-radius: 2px;"></div>
+                                    <small>Strom Base (00:00 - 24:00 Uhr) - Mo - So</small>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="bg-success me-2" style="width: 12px; height: 12px; border-radius: 2px;"></div>
+                                    <small>Strom Peek (08:00 - 20:00 Uhr) - Mo - Fr</small>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-warning me-2" style="width: 12px; height: 12px; border-radius: 2px;"></div>
+                                    <small>Gas - Montageleit THF</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-lg-4">
+                    <!-- Recent Activity Widget -->
+                    <div class="widget fade-in delay-3 mb-4">
+                        <div class="widget-header">
+                            <h5 class="widget-title">Aktuelle Aktivitäten</h5>
+                            <div class="widget-actions">
+                                <button class="btn btn-sm"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                        </div>
+                        <div class="widget-body">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-file-invoice"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Neue Rechnung erhalten</div>
+                                    <div class="activity-time">Vor 2 Minuten</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Auftrag abgeschlossen</div>
+                                    <div class="activity-time">Vor 1 Stunde</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Server Wartung</div>
+                                    <div class="activity-time">Vor 3 Stunden</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Neue Bestellung</div>
+                                    <div class="activity-time">Vor 5 Stunden</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Neuer Benutzer</div>
+                                    <div class="activity-time">Gestern</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- File Upload Widget -->
+                    <div class="widget fade-in delay-4 mb-4">
+                        <div class="widget-header">
+                            <h5 class="widget-title">Datei hochladen</h5>
+                            <div class="widget-actions">
+                                <button class="btn btn-sm"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                        </div>
+                        <div class="widget-body">
+                            <div class="file-upload-container">
+                                <div class="file-upload-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <h5 class="file-upload-text">Dateien hier ablegen oder zum Hochladen klicken</h5>
+                                <button class="file-upload-btn">Datei auswählen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beschaffung Section -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="page-header mb-4">
+                        <h2 class="page-title">Beschaffung</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-in delay-1">
+                    <div class="widget">
+                        <div class="widget-header">
+                            <h5 class="widget-title">Portfolioentwicklung</h5>
+                            <div class="widget-actions">
+                                <button class="btn btn-sm"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                        </div>
+                        <div class="widget-body">
+                            <div class="mb-3">
+                                <label class="form-label">Modell</label>
+                                <select class="form-select">
+                                    <option>Stop Loss (gleitend)</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Beschaffung</label>
+                                <select class="form-select">
+                                    <option selected>AUTO</option>
+                                    <option>Manuell</option>
+                                </select>
+                            </div>
+                            <div class="chart-container" style="height: 200px;">
+                                <canvas id="portfolioChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-in delay-2">
+                    <div class="widget">
+                        <div class="widget-header">
+                            <h5 class="widget-title">Markt</h5>
+                            <div class="widget-actions">
+                                <button class="btn btn-sm"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                        </div>
+                        <div class="widget-body">
+                            <ul class="nav nav-tabs" id="marketTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="gas-tab" data-bs-toggle="tab" data-bs-target="#gas" type="button" role="tab">Gas</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="strom-tab" data-bs-toggle="tab" data-bs-target="#strom" type="button" role="tab">Strom</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content mt-3" id="marketTabContent">
+                                <div class="tab-pane fade show active" id="gas" role="tabpanel" aria-labelledby="gas-tab">
+                                    <div class="table-responsive">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Jahr</th>
+                                                    <th>Menge</th>
+                                                    <th>Preis</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>2025</td>
+                                                    <td>2,159.000 kWh</td>
+                                                    <td>4,795.42</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2026</td>
+                                                    <td>1,850.000 kWh</td>
+                                                    <td>4,650.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2027</td>
+                                                    <td>2,000.000 kWh</td>
+                                                    <td>4,900.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2028</td>
+                                                    <td>2,250.000 kWh</td>
+                                                    <td>5,100.00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="strom" role="tabpanel" aria-labelledby="strom-tab">
+                                    <div class="table-responsive">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Quartal</th>
+                                                    <th>Menge</th>
+                                                    <th>Preis</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1. Quartal 2025</td>
+                                                    <td>4,271.081 kWh</td>
+                                                    <td>4,795.42</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2. Quartal 2025</td>
+                                                    <td>4,150.000 kWh</td>
+                                                    <td>4,650.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3. Quartal 2025</td>
+                                                    <td>4,300.000 kWh</td>
+                                                    <td>4,900.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4. Quartal 2025</td>
+                                                    <td>4,500.000 kWh</td>
+                                                    <td>5,100.00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
